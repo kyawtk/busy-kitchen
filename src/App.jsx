@@ -3,6 +3,7 @@ import "./App.css";
 import Info from "./pages/Info";
 //pages
 import Home from "./pages/Home";
+import Favorites from "./pages/Favorites";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path='/recipes/:label' element={<Info/>}></Route>
-        {/* <Route path="/favorites" element={<Favorites />}></Route> */}
+        <Route path="/favorites" element={<Favorites />}></Route>
       </Routes>
    
   );
