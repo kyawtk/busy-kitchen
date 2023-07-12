@@ -16,7 +16,8 @@ const Info = () => {
   //the data state for consuming
   const [data, setData] = useState("");
   //favoriteContext
-  const { favorites, addFavorite,removeFavorite } = useContext(FavoriteContext);
+  const { favorites, addFavorite, removeFavorite } =
+    useContext(FavoriteContext);
   //converting the uri to request to the api
   const uri = encodeURIComponent(location.state.uri);
 
@@ -54,25 +55,27 @@ const Info = () => {
   //checking if the recipe is already present in the favoriets data
   //if present button design red
   let favoritePresent = favorites.some((obj) => obj.uri === data.uri);
- console.log(favorites)
+  console.log(favorites);
   //checking if data is fetched or not // if undefined , show loading
   if (data) {
     return (
       <div className=" px-4 flex flex-wrap">
-        <Link to='/favorites'>Favorites</Link>
-                <div className="p-3 flex-1 min-w-[300px]">
+        <div className="p-3 flex-1 min-w-[300px]">
           <h1 className="text-[2rem] md:text-[2.5rem] font-bold ">{label}</h1>
           <button
             className="rounded-full mr-3 font-bold  bg-orange-600 text-white p-4 my-4  hover:scale-105 transition"
             onClick={() => {
-              navigate('/');
+              navigate("/");
             }}
           >
             {" "}
             ⬅️Back
           </button>
           {favoritePresent ? (
-            <button onClick={()=> removeFavorite(data)} className="mr-3 font-bold bg-red-500 text-white p-4 my-4 rounded-md hover:scale-105 transition">
+            <button
+              onClick={() => removeFavorite(data)}
+              className="mr-3 font-bold bg-red-500 text-white p-4 my-4 rounded-md hover:scale-105 transition"
+            >
               Remove from Favorites 💖
             </button>
           ) : (
@@ -99,10 +102,13 @@ const Info = () => {
           <p className="text-lg">
             Yields for : {serving} serving{serving > 1 && "s"}
           </p>
-          <p className="text-lg">
-            Prep Time : {hours == 0 ? "" : hours} {hours == 0 ? "" : "hr"}
-            {hours > 1 && "s"} {minutes} mins{" "}
-          </p>
+          {totalTime != 0 && (
+            <p className="text-lg">
+              Prep Time : {hours == 0 ? "" : hours} {hours == 0 ? "" : "hr"}
+              {hours > 1 && "s"} {minutes} mins{" "}
+            </p>
+          )}
+
           <ol className="list-inside">
             <h2 className="font-bold text-xl ">Ingredients</h2>
             {ingredientLines.map((i) => {
