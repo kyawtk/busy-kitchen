@@ -146,7 +146,7 @@ const Info = () => {
 export default Info;
 
 function NutritionFacts({ totalDaily, totalNutrients, calories, serving }) {
-  const [showTabel, setShowTabel] = useState(false);
+  const [showTabel, setShowTabel] = useState(true);
   return (
     <motion.div className=" mx-auto w-full md:w-3/4 min-h-[400px]">
       <div className="bg-slate-300 p-4 box-border flex justify-around items-center">
@@ -186,7 +186,7 @@ function NutritionFacts({ totalDaily, totalNutrients, calories, serving }) {
         {showTabel ? "Hide" : "Show"} Full Nurtition Label
       </button>
       <AnimatePresence>
-        {true && (
+        {showTabel && (
           <NutritionTabel
             totalDaily={totalDaily}
             totalNutrients={totalNutrients}
