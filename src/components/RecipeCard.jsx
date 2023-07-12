@@ -20,8 +20,7 @@ const RecipeCard = ({ recipe }) => {
         type:'spring',
       
       }}
-      drag
-      dragSnapToOrigin
+     
       whileInView={{
         
         opacity:1
