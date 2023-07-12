@@ -1,9 +1,10 @@
-import { useReducer, useRef, useState } from "react";
+import { useContext, useReducer, useRef, useState } from "react";
 import SearchBar from "../components/SearchBar";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { AnimatePresence } from "framer-motion";
 import RecipeCard from "../components/RecipeCard";
+import { SearchContext } from "../context/searchContext";
 const base = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${
   import.meta.env.VITE_APP_ID
 }&app_key=${import.meta.env.VITE_APP_KEY}&q=`;
@@ -11,7 +12,7 @@ const base = `https://api.edamam.com/api/recipes/v2?type=public&app_id=${
 const Home = () => {
   const searchRef = useRef(null);
   const [nextPage, setNextPage] = useState(null);
-  const [data, setData] = useState("");
+  const {data, setData} = useContext(SearchContext)
   const [loading, setLoading] = useState(false);
   async function getData() {
     setLoading(true);
