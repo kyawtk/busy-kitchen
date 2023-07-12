@@ -83,6 +83,7 @@ const Info = () => {
               className="mr-3 font-bold  bg-orange-600 text-white p-4 my-4 rounded-md hover:scale-105 transition"
               onClick={() => {
                 addFavorite(data);
+                
               }}
             >
               Add To Favorites 💖
