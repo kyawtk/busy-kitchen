@@ -14,7 +14,7 @@ const Favorites = () => {
           NO favorites now. Come back later
         </h1>
       )}
-      <div className="flex flex-wrap gap-4">
+      <div className="p-5 flex flex-wrap gap-4">
         {favorites.map((recipe) => {
           return <RecipeCard key={recipe.uri} recipe={recipe}></RecipeCard>;
         })}
